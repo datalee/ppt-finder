@@ -1,0 +1,107 @@
+{
+  "name": "ppt-finder",
+  "version": "1.0.0",
+  "description": "PPT 快速定位、搜索和完整内容提取工具。通过纯文本索引快速搜索 PPT 内容，支持提取单页或批量提取匹配页面，毫秒级响应。",
+  "author": "memu-bot",
+  "license": "MIT",
+  "main": "scripts/ppt_tool.py",
+  "python": "C:\\Python314\\python.exe",
+  "dependencies": [
+    "python-pptx>=1.0.0"
+  ],
+  "tags": [
+    "ppt",
+    "document-search",
+    "content-extraction",
+    "productivity",
+    "windows"
+  ],
+  "capabilities": [
+    "search",
+    "extract",
+    "batch-extract",
+    "list",
+    "open"
+  ],
+  "configuration": {
+    "ppt_dir": "C:\\Users\\Administrator\\Desktop\\PPT集合",
+    "index_file": "C:\\Users\\Administrator\\AppData\\Roaming\\memu-bot\\agent-output\\ppt_index.json",
+    "default_output_dir": "C:\\Users\\Administrator\\AppData\\Roaming\\memu-bot\\agent-output\\ppt_extracted"
+  },
+  "commands": {
+    "build": {
+      "description": "构建 PPT 索引",
+      "usage": "python scripts/ppt_tool.py --build"
+    },
+    "search": {
+      "description": "搜索 PPT 内容",
+      "usage": "python scripts/ppt_tool.py --search <query>",
+      "params": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "搜索关键词",
+          "required": true
+        }
+      ]
+    },
+    "extract": {
+      "description": "提取单页完整内容",
+      "usage": "python scripts/ppt_tool.py --extract <filename> <page>",
+      "params": [
+        {
+          "name": "filename",
+          "type": "string",
+          "description": "PPT 文件名",
+          "required": true
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "description": "页码（从 1 开始）",
+          "required": true
+        }
+      ]
+    },
+    "extract-all": {
+      "description": "批量提取匹配页面",
+      "usage": "python scripts/ppt_tool.py --extract-all <query> [output_dir]",
+      "params": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "搜索关键词",
+          "required": true
+        },
+        {
+          "name": "output_dir",
+          "type": "string",
+          "description": "输出目录（可选）",
+          "required": false
+        }
+      ]
+    },
+    "list": {
+      "description": "列出所有内容",
+      "usage": "python scripts/ppt_tool.py --list"
+    },
+    "open": {
+      "description": "打开 PPT 文件",
+      "usage": "python scripts/ppt_tool.py --open <filename> [page]",
+      "params": [
+        {
+          "name": "filename",
+          "type": "string",
+          "description": "PPT 文件名",
+          "required": true
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "description": "页码（可选）",
+          "required": false
+        }
+      ]
+    }
+  }
+}
